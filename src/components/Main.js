@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Categories from "./Categories";
 import Products from "./Products";
 import Tab from "./Nav";
+import Cart from "./Cart";
 export default function Main() {
   const [show, setShow] = useState(false);
   const [hidden, setHidden] = useState(true);
@@ -12,6 +13,7 @@ export default function Main() {
   };
   return (
     <div>
+      <Cart />
       <Tab hidden={hidden} show={show} handleChangeShow={handleChangeShow} />
       <Categories   show={show} handleChangeShow={handleChangeShow} />
       <Products />

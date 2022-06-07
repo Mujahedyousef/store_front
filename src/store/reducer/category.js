@@ -2,6 +2,7 @@ export const initialState = {
     categoryList: [{ id: 1, category: "Food", description: "We are making the best meal for you, Enjoy" },
     { id: 2, category: "Electronics", description: "Now you can be selecting the best...  " }],
     activeCategory: "",
+    
 };
 
 export default function categoryReducer(state = initialState, action) {

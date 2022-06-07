@@ -67,7 +67,7 @@ export default function reducerProducts(state = initialState, action) {
   console.log(state);
   switch (type) {
     case "SELECT_PRODUCT":
-      // console.log("SELECT_PRODUCT", payload);
+    
       selectedProduct = state.products.filter(
         (product) => product.category === payload
       );
@@ -75,6 +75,38 @@ export default function reducerProducts(state = initialState, action) {
         ...state,
         selectedProducts: selectedProduct,
       };
+
+    case "DECREASE_QUANTITY":
+      console.log(11111,payload);
+     let decreaseQuantity=[...state.selectedProducts];
+     let afterDecrease=decreaseQuantity.map(element=>{
+       if(element.name===payload.name)
+       {
+        element.quantity=element.quantity>0?element.quantity-1:'Sold Out'
+        return element;
+     }
+     return element
+    })
+    return{
+      ...state,
+      selectedProducts:afterDecrease
+    }
+
+
+    case "INCREASE_QUANTITY":
+      let increaseProduct=[...state.selectedProducts];
+      let afterIncrease=increaseProduct.map(element=>{
+        if(element.name===payload.name)
+        {
+          element.quantity=element.quantity+1
+          return element
+        }
+        return element;
+      })
+       return {
+        ...state,
+        selectedProducts:afterIncrease
+       } 
 
     default:
       return state;
@@ -88,6 +120,19 @@ export const selectedProduct = (name) => {
   };
 };
 
+export const decreaseQuantity = (name) => {
+  return {
+    type: "DECREASE_QUANTITY",
+    payload: name,
+  };
+};
+
+export const increaseQuantity = (name) => {
+  return {
+    type: "INCREASE_QUANTITY",
+    payload: name,
+  };
+};
 
 
 
