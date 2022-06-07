@@ -22,7 +22,9 @@ export default function AccessibleTabs2(props) {
               sx={{ width: "100%", justifyItems: "center", fontWeight: 900 }}
               label="Get Categories"
             />
+            
           </Tabs>
+          
         </Box>
       )}
     </>

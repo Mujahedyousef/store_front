@@ -87,9 +87,7 @@ const ImageMarked = styled("span")(({ theme }) => ({
 }));
 
 export default function Catagories(props) {
-  // const state = useSelector((state) => state.Categories);
   const dispatch = useDispatch();
-  // console.log(state);
   function handelClick(ele) {
     dispatch({ type: "SET_ACTIVE_CATEGORY", payload: ele });
     dispatch({ type: "SELECT_PRODUCT", payload: ele });
